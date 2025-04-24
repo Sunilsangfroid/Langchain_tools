@@ -1,0 +1,64 @@
+What is Tools?
+- It is just a Python function (or API) that is packaged in a way the LLM can understand and call when needed.
+
+LLMs(like GPT) are great at:
+- Reasoning
+- Language Generation
+
+But they can't do things like:
+- Access live data (weather, news)
+- Do reliable math
+- Call APIs
+- Run Code
+- Interact with a database
+
+Types of Tools:
+A. Built-in Tools
+B. Custom Tools
+
+How Tools fits into the Agent ecosystem:
+- An AI agent is a LLM-powered system that can automatically think,decide, and take actions using external tools or APIs to achieve a goal.
+
+Reasoning & Decision Making: LLM + Action: Tools = AI Agent
+
+A. Built-in Tools:
+- It is a tool that Langchain already provides for you-it's pre-built, production ready, and requires minimal or no setup.
+- You donot have to write the function logic yourself - you just import and use it.
+
+Example:
+- DuckDuckGoSearchRun: Web Search via DuckDuckGo
+- WikipediaQueryRun: Wikipedia Summary
+- PythonREPLTool: Run Raw Python Code
+- ShellTool: Run Shell Commands
+- RequestsGetTool: Make HTTP Requests
+- GmailSendMessageTool: Send emails via Gmail
+- SlackSendMessageTool: Post messages to Slack
+- SQLDatabaseQueryTool: Run SQL Queries
+
+B. Custom Tools:
+- It is a tool that you define yourself.
+- Use them When:
+   .You want to call your own APIs.
+   .You want to encapsulate business logic.
+   .You want the LLM to interact with your database, product or app.
+-Ways to create Custom Tools:
+   .Using @tool decorator
+   .Using StructuredTool & Pydantic
+   .Using BaseTool class
+- StructuredTool:
+  It is a tool in Langchain is a special type of tool where the input to the tool follows a structured schema, typically defined using a Pydantic model.
+
+- BaseTool:
+  It is the abstract base class for all tools in Langchain. It defines the core structure and interface that any tool must follow, whether it's a simple one-linear or a fully customized function.
+
+  All other tool types like @tool, StructuredTool are built on top of BaseTool.
+
+Toolkits:
+- It is just a collection (bundle) of related tools that serve a common purpose packaged together for convenience and reusability.
+
+In LangChain:
+- A toolkit might be: GoogleDriveToolKit.
+- And it can contain the following tools:
+  GoogleDriveCreateFileTool: Upload a file
+  GoogleDriveSearchTool: Search for a file by name/content
+  GoogleDriveReadFileTool: Read contents of a file
