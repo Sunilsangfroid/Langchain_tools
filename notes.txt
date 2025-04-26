@@ -63,9 +63,27 @@ In LangChain:
   GoogleDriveSearchTool: Search for a file by name/content
   GoogleDriveReadFileTool: Read contents of a file
 
-Tool Calling:-
+
 A) Tool Binding:
 - It is the step where you register tools with a Language Model(LLM) so that:
    . The LLM knows what tools are available.
    . It knows what each tool does(via description).
    . It knows what input format to use(via schema).
+
+B) Tool Calling:
+- It is the process where the LLM decides, during a conversation ar task, that it needs to use a specific tool(function)- and generates a structured output with:
+  . the name of the tool
+  . and the arguments to call it with
+
+- The LLM doesn't actually run the tool - it just suggests the tool and the input arguments. The actual execution is handled by LangChain or you.
+Example:
+"What's 8 multiply by 7?"
+
+The LLM responds with a tool call:
+json:
+```
+{
+  "tool": "multiply",
+  "args": {"a":8,"b":7}
+}
+```
