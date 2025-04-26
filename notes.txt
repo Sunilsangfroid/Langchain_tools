@@ -76,14 +76,25 @@ B) Tool Calling:
   . and the arguments to call it with
 
 - The LLM doesn't actually run the tool - it just suggests the tool and the input arguments. The actual execution is handled by LangChain or you.
-Example:
-"What's 8 multiply by 7?"
 
-The LLM responds with a tool call:
-json:
-```
-{
-  "tool": "multiply",
-  "args": {"a":8,"b":7}
-}
-```
+- Example:
+  "What's 8 multiply by 7?"
+
+  The LLM responds with a tool call:
+  json:
+  ```
+  {
+    "tool": "multiply",
+    "args": {"a":8,"b":7}
+  }
+  ```
+
+C) Tool Execution:
+- It is the step where the actual Python function(tool) is run using the input arguments that the LLM suggested during tool calling.
+
+In Simple Words:
+  The LLM says:
+   "Hey, Call the multiply tool with a=8 and b=89."
+   Tool Execution is when you or LangChain actually run:
+   multiply(a=8,b=7)
+   - And get the result back: 56
