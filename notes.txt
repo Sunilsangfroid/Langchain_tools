@@ -62,3 +62,10 @@ In LangChain:
   GoogleDriveCreateFileTool: Upload a file
   GoogleDriveSearchTool: Search for a file by name/content
   GoogleDriveReadFileTool: Read contents of a file
+
+Tool Calling:-
+A) Tool Binding:
+- It is the step where you register tools with a Language Model(LLM) so that:
+   . The LLM knows what tools are available.
+   . It knows what each tool does(via description).
+   . It knows what input format to use(via schema).
