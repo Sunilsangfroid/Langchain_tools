@@ -98,3 +98,12 @@ In Simple Words:
    Tool Execution is when you or LangChain actually run:
    multiply(a=8,b=7)
    - And get the result back: 56
+
+- This is not exactly work as like the AI Agent works:
+
+1. User says: "Convert 10 USD to INR".
+2. LLM think: "I don't know the rate. First, let me call get_conversion_factor.
+3. Tool result comes: 85.3415.
+4. LLM looks at result Thinks again: "Now I know the rate, next i should call convert with 10 and 85.3415."
+5. Tool result comes: 853.415.
+6. LLM summarizes: "10 USD is 853.415 INR at current rate."
